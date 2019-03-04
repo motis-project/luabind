@@ -1,3 +1,0 @@
-[submodule "external_lib/lua-5.1"]
-	path = external_lib/lua-5.1
-	url = git@git.motis-project.de:lib/lua.git

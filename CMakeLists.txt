@@ -1,11 +1,9 @@
 cmake_minimum_required(VERSION 2.8)
 project(lua)
 
-include_directories(
-  external_lib/lua-5.1/src
-  .
-)
-add_subdirectory(external_lib/lua-5.1)
+if(IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/deps")
+  add_subdirectory(deps)
+endif()
 
 set(SOURCES
   src/class.cpp
@@ -28,3 +26,4 @@ set(SOURCES
 )
 add_library(luabind STATIC ${SOURCES})
 target_link_libraries(luabind lua)
+target_include_directories(luabind PUBLIC .)
