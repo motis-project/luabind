@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8)
 project(lua)
 
+find_package(Boost REQUIRED)
+
 if(IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/deps")
   add_subdirectory(deps)
 endif()
@@ -25,5 +27,5 @@ set(SOURCES
   src/wrapper_base.cpp
 )
 add_library(luabind STATIC ${SOURCES})
-target_link_libraries(luabind lua)
-target_include_directories(luabind PUBLIC .)
+target_link_libraries(luabind lua )
+target_include_directories(luabind PUBLIC . ${Boost_INCLUDE_DIR})
