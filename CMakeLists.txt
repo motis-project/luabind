@@ -27,5 +27,5 @@ set(SOURCES
   src/wrapper_base.cpp
 )
 add_library(luabind STATIC ${SOURCES})
-target_link_libraries(luabind lua )
-target_include_directories(luabind PUBLIC . ${Boost_INCLUDE_DIR})
+target_link_libraries(luabind lua)
+target_include_directories(luabind SYSTEM PUBLIC . ${Boost_INCLUDE_DIR})
