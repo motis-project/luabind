@@ -1,4 +1,4 @@
 [lua]
   url=git@github.com:motis-project/lua.git
   branch=master
-  commit=6de23cc25a296386de22b2a5553eadb1030a5757
+  commit=f33872490a19655ff7c5623246a90d851446dc79
