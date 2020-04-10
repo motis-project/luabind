@@ -29,3 +29,6 @@ set(SOURCES
 add_library(luabind STATIC ${SOURCES})
 target_link_libraries(luabind lua)
 target_include_directories(luabind SYSTEM PUBLIC . ${Boost_INCLUDE_DIR})
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  target_compile_definitions(luabind PUBLIC _LIBCPP_ENABLE_CXX17_REMOVED_AUTO_PTR=1)
+endif()
