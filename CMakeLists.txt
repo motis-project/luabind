@@ -27,6 +27,7 @@ set(SOURCES
   src/wrapper_base.cpp
 )
 add_library(luabind STATIC ${SOURCES})
+target_compile_features(luabind PRIVATE cxx_std_14)
 target_link_libraries(luabind lua)
 target_include_directories(luabind SYSTEM PUBLIC . ${Boost_INCLUDE_DIR})
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")

@@ -208,11 +208,15 @@ inline int invoke_actual(
 
     if (arity == arguments)
     {
-        int const scores[] = {
-            compute_score<Args>(L, converters, indices[Indices + 1])...
-        };
+        if constexpr (sizeof...(converters) != 0) {
+          int const scores[] = {
+              compute_score<Args>(L, converters, indices[Indices + 1])...
+          };
 
-        score = sum_scores(scores, scores + sizeof...(Args));
+          score = sum_scores(scores, scores + sizeof...(Args));
+        } else {
+          score = 0;
+        }
     }
 
     if (score >= 0 && score < ctx.best_score)
