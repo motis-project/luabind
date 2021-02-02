@@ -2,3 +2,7 @@
   url=git@github.com:motis-project/lua.git
   branch=master
   commit=6898e2902fa5b890e0384e437abeb16034c61ece
+[boost]
+  url=git@github.com:motis-project/boost.git
+  branch=master
+  commit=d60b850a4be7e7690e4098c0e55125608c040d28

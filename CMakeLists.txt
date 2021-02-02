@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(lua)
 
-find_package(Boost REQUIRED)
-
 if(IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/deps")
   add_subdirectory(deps)
 endif()
@@ -28,8 +26,8 @@ set(SOURCES
 )
 add_library(luabind STATIC ${SOURCES})
 target_compile_features(luabind PRIVATE cxx_std_14)
-target_link_libraries(luabind lua)
-target_include_directories(luabind SYSTEM PUBLIC . ${Boost_INCLUDE_DIR})
+target_link_libraries(luabind lua boost)
+target_include_directories(luabind SYSTEM PUBLIC .)
 if (NOT MSVC)
   target_compile_options(luabind PRIVATE -Wno-deprecated-declarations)
 endif ()
